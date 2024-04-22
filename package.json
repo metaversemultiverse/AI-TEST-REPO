@@ -1,0 +1,15 @@
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.mkShell {
+  name = "my-node-project";
+
+  buildInputs = with pkgs; [
+    nodejs
+    yarn
+  ];
+
+  shellHook = ''
+    # Install project dependencies
+    yarn install
+  '';
+}

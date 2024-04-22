@@ -1,0 +1,84 @@
+[tool.poetry]
+name = "CrewAI w/ClaudeAI"
+version = "1.0.0"
+description = "A CrewAI project for generating code, documentation, and managing user interactions with advanced AI capabilities."
+authors = ["US DEPARTMENT OF SPURS <admin@spurs.gov>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10.0,<3.11"
+replit = "^3.2.4"
+Flask = "^2.2.0"
+crewai = "^1.0.0"
+requests = "^2.25.1"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+isort = "^5.6.4"
+mypy = "^0.1291"
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+
+[tool.poetry.scripts]
+run = "python main.py"
+start = "crewai_project:main"  # Entry point for your application, adjust as necessary
+
+[tool.poetry.metadata]
+python-versions = "3.10"
+
+[tool.poetry.plugins]
+poetry-version = "^1.1.11"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+
+build-backend = "poetry.core.masonry.api"
+
+[metadata]
+name = "CrewAI w/ClaudeAI"
+version = "1.0.0"
+description = "A CrewAI project for generating code, documentation, and managing user interactions with advanced AI capabilities."
+authors = ["US DEPARTMENT OF SPURS <admin@spurs.gov>"] 
+
+
+[tool.pyright]
+# https://github.com/microsoft/pyright/blob/main/docs/configuration.md
+useLibraryCodeForTypes = true
+
+[tool.ruff]
+# https://beta.ruff.rs/docs/configuration/
+select = ['E', 'W', 'F', 'I', 'B', 'C4', 'ARG', 'SIM']
+ignore = ['W291', 'W292', 'W293']
+[tool.sphinx]
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinx.ext.viewcode', 'sphinx.ext.intersphinx', 'sphinx.ext.todo', 'sphinx.ext.coverage', 'sphinx.ext.mathjax', 'sphinx.ext.githubpages', 'sphinx.ext.ifconfig', 'sphinx.ext.autosectionlabel', 'sphinx.ext.autosummary', 'sphinx.ext.extlinks', 'sphinx.egg.ext.autodoc' ]
+
+autosectionlabel_prefix_document = True
+
+intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
+
+[tool.flake8]
+# https://flake8.pycqa.org/en/latest/user/configuration.html
+max-line-length = 120
+exclude = [
+  '.venv',
+  'build',
+  'dist'
+]
+ignore = ['E501', 'W503']
+
+[tool.coverage.run]
+# https://coverage.readthedocs.io/en/coverage-5.5/config.html
+branch = true
+omit = [
+  'tests/*',
+  'setup.py'
+]
+
+[tool.coverage.report]
+# https://coverage.readthedocs.io/en/coverage-5.5/config.html
+fail_under = 80
+show_missing = true
+exclude_lines = [
+  'if __name__ == "__main__":',
+  'def main():'
+]

@@ -1,0 +1,47 @@
+import os
+
+def create_folder_structure():
+    # Create the main project folder
+    project_folder = "project"
+    os.makedirs(project_folder, exist_ok=True)
+
+    # Create the subfolders
+    conversations_folder = os.path.join(project_folder, "conversations")
+    os.makedirs(conversations_folder, exist_ok=True)
+
+    generated_code_folder = os.path.join(project_folder, "generated_code")
+    os.makedirs(generated_code_folder, exist_ok=True)
+
+    logs_folder = os.path.join(project_folder, "logs")
+    os.makedirs(logs_folder, exist_ok=True)
+
+    # Create empty files
+    files = [
+        os.path.join(project_folder, "main.py"),
+        os.path.join(project_folder, "gui.py"),
+        os.path.join(project_folder, "api.py"),
+        os.path.join(project_folder, "google_drive.py"),
+        os.path.join(project_folder, "conversation.py"),
+        os.path.join(project_folder, "code_generator.py"),
+        os.path.join(project_folder, "utils.py"),
+        os.path.join(project_folder, "client_config.json"),
+        os.path.join(project_folder, "requirements.txt"),
+        os.path.join(project_folder, "README.md"),
+    ]
+
+    for file in files:
+        open(file, "a").close()
+
+    # Create empty files in the logs folder
+    log_files = [
+        os.path.join(logs_folder, "app.log"),
+        os.path.join(logs_folder, "error.log"),
+    ]
+
+    for log_file in log_files:
+        open(log_file, "a").close()
+
+    print("Folder and file schema generated successfully!")
+
+if __name__ == "__main__":
+    create_folder_structure()

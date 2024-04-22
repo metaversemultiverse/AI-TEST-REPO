@@ -1,0 +1,21 @@
+project/
+│
+├── main.py
+├── gui.py
+├── api.py
+├── google_drive.py
+├── conversation.py
+├── code_generator.py
+├── utils.py
+│
+├── conversations/
+│
+├── generated_code/
+│
+├── logs/
+│   ├── app.log
+│   └── error.log
+│
+├── client_config.json
+├── requirements.txt
+└── README.md
